@@ -1,2 +1,13 @@
 # pg-queries
 A collection of useful PostgreSQL queries. This includes table and database information. 
+
+# Version History
+## 2023-11-10
+Inital commit.
+Updated folders for database, table, cluster, and permissions.
+Added basic queries for all sections
+
+## 2023-11-14
+Added schema only backup via pg_dump
+Added additional database size queries
+Added query and commands to list all tables
