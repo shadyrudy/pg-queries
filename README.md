@@ -3,7 +3,7 @@ A collection of useful PostgreSQL queries. This includes table and database info
 
 # Version History
 ## 2023-11-10
-Inital commit.
+Initial commit.
 Updated folders for database, table, cluster, and permissions.
 Added basic queries for all sections
 
@@ -11,3 +11,7 @@ Added basic queries for all sections
 Added schema only backup via pg_dump
 Added additional database size queries
 Added query and commands to list all tables
+
+## 2023-11-29
+Added table row counts.
+Changed the formatting in some queries.
