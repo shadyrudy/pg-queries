@@ -18,3 +18,5 @@ Changed the formatting in some queries.
 
 ## 2024-01-08
 Updated table size query to use oid instead of reltoastrelid.
+Removed redundant table size query.
+Added byte column to total table size query.
