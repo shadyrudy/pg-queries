@@ -15,3 +15,6 @@ Added query and commands to list all tables
 ## 2023-11-29
 Added table row counts.
 Changed the formatting in some queries.
+
+## 2024-01-08
+Updated table size query to use oid instead of reltoastrelid.
