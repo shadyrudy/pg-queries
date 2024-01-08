@@ -20,3 +20,4 @@ Changed the formatting in some queries.
 Updated table size query to use oid instead of reltoastrelid.
 Removed redundant table size query.
 Added byte column to total table size query.
+Updated database size query to include bytes, MB, and GB.
