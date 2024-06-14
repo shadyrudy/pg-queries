@@ -1,5 +1,9 @@
 # pg-queries
-A collection of useful PostgreSQL queries. This includes table and database information. 
+A collection of useful PostgreSQL queries. 
+This includes the following:
+1. table and database information. 
+2. 
+
 
 # Version History
 ## 2023-11-10
@@ -21,3 +25,10 @@ Updated table size query to use oid instead of reltoastrelid.
 Removed redundant table size query.
 Added byte column to total table size query.
 Updated database size query to include bytes, MB, and GB.
+
+## 2024-06-14
+Added query for cache hit ratio
+Added query for current locks
+Added query for long running statements. Statements are 5 mins
+Added query for current transactions. 
+Added query for current uptime.
