@@ -32,3 +32,10 @@ Added query for current locks
 Added query for long running statements. Statements are 5 mins
 Added query for current transactions. 
 Added query for current uptime.
+
+## 2024-07-28
+Added queries for replication status from the primary server.
+Added query for primary replication slots.
+Added queries for replication status from secondary servers. 
+Added query for secondary replication slot.
+Added query for last WAL file received and replayed on secondary servers.
