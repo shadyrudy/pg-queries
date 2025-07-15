@@ -32,3 +32,21 @@ SELECT  pid,
 FROM    pg_stat_activity
 WHERE   xact_start IS NOT NULL
 ORDER BY xact_start;
+
+--  The following query returns the active transactions in the PostgreSQL server.
+--  This version only returns the first 128 characters of the query text.
+SELECT  pid,
+        usename,
+        datname,
+        application_name,
+        client_addr,
+        state,
+        backend_start,
+        xact_start,
+        query_start,
+        state_change,
+        left(query, 128) AS query
+FROM    pg_stat_activity
+WHERE   state = 'active' 
+AND     xact_start IS NOT NULL
+ORDER BY xact_start;

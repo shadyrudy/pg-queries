@@ -1,6 +1,6 @@
 -- Title: PostgreSQL Current blocking queries
 -- The following query returns the current blocking queries in 
--- PostgreSQL server.
+-- PostgreSQL.
 SELECT  blocked_locks.pid AS blocked_pid
 	  , blocked_activity.usename AS blocked_user
 	  , blocking_locks.pid AS blocking_pid
@@ -34,7 +34,7 @@ WHERE NOT blocked_locks.granted;
 
 -- Title: PostgreSQL Current blocking queries
 -- The following query returns the current blocking queries in 
--- PostgreSQL server. This version returns the actual query text
+-- PostgreSQL. This version returns the actual query text
 -- for both blocked and blocking processes.
 SELECT  blocked_locks.pid AS blocked_pid
 	  , blocked_activity.usename AS blocked_user
@@ -66,3 +66,15 @@ FROM blocked_locks.objsubid
 JOIN pg_catalog.pg_stat_activity blocking_activity
 	ON blocking_activity.pid = blocking_locks.pid
 WHERE NOT blocked_locks.granted;
+
+-- Display blocking queries with their blocked processes
+-- This query lists all processes that are currently blocked
+SELECT  pid
+	  , usename AS blocked_user
+	  , pg_blocking_pids(pid) AS blocking_pids
+	  , query AS blocked_query
+	  ,	usename
+	  , pg_blocking_pids(pid) AS blocked_by
+	  , left(query, 100) AS blocked_query
+FROM pg_stat_activity
+WHERE cardinality(pg_blocking_pids(pid)) > 0;
