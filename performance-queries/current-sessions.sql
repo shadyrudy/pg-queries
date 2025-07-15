@@ -36,3 +36,16 @@ SELECT pid,
        query
 FROM   pg_stat_activity
 WHERE  state = 'active';
+
+-- An alternative query to obtain a list of current, active sessions.
+-- This query excludes idle sessions and filters out queries to the pg_stat_activity view.
+SELECT pid, 
+       usename,
+       application_name, 
+       client_addr, 
+       client_port, 
+       backend_start, 
+       state
+FROM   pg_stat_activity
+WHERE  state <> 'idle'
+AND    query NOT LIKE '% FROM pg_stat_activity %'
