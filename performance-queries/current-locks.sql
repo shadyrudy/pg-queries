@@ -42,4 +42,4 @@ group by a.pid,
         a.usename,
         a.application_name,
         a.client_addr
-ORDER BY a.pid
+ORDER BY a.pid;
