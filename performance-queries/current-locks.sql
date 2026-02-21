@@ -19,7 +19,9 @@ SELECT  a.pid,
         l.objsubid,
         l.virtualtransaction,
         a.backend_start,
-        a.query
+        -- a.query,
+        to_char(now() - a.backend_start, 'HH24:MI:SS') as runtime,
+        to_char(now(), 'YYYY-MM-DD HH24:MI:SS') as last_updated
 FROM    pg_locks as l
 JOIN    pg_stat_activity as a
 ON      l.pid = a.pid
@@ -34,12 +36,16 @@ SELECT  a.pid,
         a.usename,
         a.application_name,
         a.client_addr,
-        count(*) as lock_total
+        count(*) as lock_total,
+        to_char(now() - a.backend_start, 'HH24:MI:SS') as runtime,
+        to_char(now(), 'YYYY-MM-DD HH24:MI:SS') as last_updated        
 FROM    pg_locks as l
 JOIN    pg_stat_activity as a
 ON      l.pid = a.pid
 group by a.pid,
         a.usename,
         a.application_name,
-        a.client_addr
+        a.client_addr,
+        runtime,
+        last_updated
 ORDER BY a.pid;
